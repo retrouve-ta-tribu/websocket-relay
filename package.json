@@ -1,0 +1,19 @@
+{
+  "name": "websocket-relay",
+  "version": "1.0.0",
+  "description": "A simple websocket server to relay communication between clients in rooms",
+  "main": "dist/app.js",
+  "scripts": {
+    "start": "node dist/app.js",
+    "prestart": "npx tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "socket.io": "^4.7.4"
+  }
+}
