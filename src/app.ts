@@ -6,7 +6,7 @@ const port : number =  parseInt(process.env.PORT) || 3001;
 
 const io : Server = new Server({
     cors: {
-        origin: "http://localhost:3000",
+        origin: "*",
         methods: ["GET", "POST"]
     }
 });
