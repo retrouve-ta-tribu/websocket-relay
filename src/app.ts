@@ -6,7 +6,7 @@ const port : number =  parseInt(process.env.PORT) || 3001;
 
 const io : Server = new Server({
     cors: {
-        origin: "http://localhost:3000",
+        origin: "*",
         methods: ["GET", "POST"]
     }
 });
@@ -22,7 +22,7 @@ io.on("connection", (socket : Socket<DefaultEventsMap, DefaultEventsMap, Default
         console.log("Client " + socket.id + " leaved room " + roomName);
     });
     socket.on(RoomEvents.Broadcast,  (broadcast : {room : string, content : any}) => {
-        socket.to(broadcast.room).emit(RoomEvents.Broadcast, broadcast.content);
+        io.to(broadcast.room).emit(RoomEvents.Broadcast, broadcast.content);
         console.log("Client " + socket.id + " broadcast message to room " + broadcast.room);
     });
     socket.on("disconnect", () => {
